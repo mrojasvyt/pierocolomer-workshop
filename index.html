@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piero Colomer — Fotografia de Conciertos</title>
+<meta name="description" content="Fotografo profesional de conciertos en Lima. Talleres online de fotografia de musica en vivo: baja luz, edicion en Lightroom y acreditaciones.">
+<meta property="og:title" content="Piero Colomer — Fotografia de Conciertos">
+<meta property="og:description" content="Aprende a capturar conciertos con el fotografo que esta en el pit cada fin de semana.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="photos/p5.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0a0a0a;color:#ece7dd;font-family:'Archivo',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.8}
+img{display:block;max-width:100%;height:auto}
+button{font-family:inherit;cursor:pointer}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;height:64px;padding:0 clamp(20px,4vw,56px);background:rgba(10,10,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #1f1d1a}
+.nav-logo{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.nav-links{display:flex;gap:24px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;align-items:center}
+.nav-links a{color:#a39c90;transition:color .2s}
+.nav-links a:hover{color:#ece7dd;opacity:1}
+.nav-cta{background:#ff3d2e;color:#0a0a0a;padding:10px 18px;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:none;transition:transform .15s}
+.nav-cta:hover{opacity:1;transform:scale(1.03)}
+
+/* Hero */
+.hero{position:relative;height:calc(100svh - 64px);min-height:520px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.1) 0%,rgba(10,10,10,.3) 40%,rgba(10,10,10,.92) 100%)}
+.hero-content{position:relative;padding:0 clamp(20px,4vw,56px) clamp(28px,5vh,56px);width:100%}
+.hero-tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#a39c90;margin-bottom:clamp(10px,2vh,18px)}
+.hero h1{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(36px,min(7.2vw,9.5vh),112px);line-height:.9;text-transform:uppercase;letter-spacing:-.01em;max-width:1100px}
+.hero h1 span{color:#ff3d2e}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 40px;margin-top:clamp(16px,3vh,32px);flex-wrap:wrap}
+.hero-desc{font-size:clamp(15px,1.2vw,18px);line-height:1.5;color:#d6cfc3;max-width:520px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:#ff3d2e;color:#0a0a0a;font-weight:600;font-size:14px;padding:15px 24px;display:inline-flex;gap:10px;align-items:center;border:none;transition:transform .15s}
+.btn-primary:hover{opacity:1;transform:scale(1.03)}
+.btn-outline{border:1px solid #ece7dd;color:#ece7dd;font-weight:500;font-size:14px;padding:15px 24px;background:transparent}
+
+/* Sections */
+.section{padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px)}
+.section-tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#a39c90}
+
+/* Slideshow quote — replaces "Desde el pit" gallery */
+.slideshow-quote{position:relative;width:100%;height:100vh;min-height:500px;overflow:hidden}
+.slideshow-quote .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
+.slideshow-quote .slide.active{opacity:1}
+.slideshow-quote .overlay{position:absolute;inset:0;background:rgba(10,10,10,.5);z-index:2}
+.slideshow-quote .text{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;padding:clamp(24px,6vw,80px);text-align:center}
+.slideshow-quote .text p{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(40px,7vw,110px);line-height:.92;text-transform:uppercase;max-width:1000px;letter-spacing:-.01em}
+.slideshow-quote .text span{color:#ff3d2e}
+.slideshow-quote .corner{position:absolute;z-index:4;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#a39c90}
+.slideshow-quote .corner-tl{top:clamp(20px,4vw,48px);left:clamp(20px,4vw,56px)}
+.slideshow-quote .corner-br{bottom:clamp(20px,4vw,48px);right:clamp(20px,4vw,56px)}
+.slideshow-quote .corner-br a{border-bottom:1px solid #ece7dd;padding-bottom:3px;color:#ece7dd}
+
+/* Workshop teaser */
+.teaser{background:#ff3d2e;color:#0a0a0a}
+.teaser-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0}
+.teaser-text{padding:clamp(40px,5vw,72px) clamp(20px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.teaser-text .section-tag{color:#0a0a0a}
+.teaser h2{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(48px,6vw,100px);line-height:.88;text-transform:uppercase;margin-top:18px}
+.teaser h2 .light{color:#ece7dd}
+.teaser-desc{font-size:17px;line-height:1.45;max-width:480px;margin-bottom:28px}
+.btn-dark{background:#0a0a0a;color:#ece7dd;font-weight:600;font-size:15px;padding:18px 28px;display:inline-block;border:none;transition:transform .15s}
+.btn-dark:hover{opacity:1;transform:scale(1.03)}
+.teaser-img{position:relative;min-height:420px}
+.teaser-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(32px,5vw,80px);align-items:center}
+.about-img{width:100%;aspect-ratio:4/5;object-fit:cover;max-width:560px}
+.about-text h2{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(48px,5.5vw,88px);line-height:.9;text-transform:uppercase;margin-top:16px}
+.about-text p{font-size:17px;line-height:1.55;color:#d6cfc3;margin-top:16px;max-width:520px}
+.about-links{display:flex;gap:24px;margin-top:32px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.about-links a{border-bottom:1px solid #ece7dd;padding-bottom:3px}
+.about-links a.red{color:#ff3d2e;border-color:#ff3d2e}
+
+/* Footer */
+.footer{border-top:1px solid #1f1d1a;padding:24px clamp(20px,4vw,56px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#a39c90}
+
+/* Mobile */
+@media(max-width:768px){
+  .nav-links .nav-link-text{display:none}
+  .hero-bottom{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Piero Colomer</a>
+  <div class="nav-links">
+    <a href="#trabajo" class="nav-link-text">Desde el pit</a>
+    <a href="#piero" class="nav-link-text">Piero</a>
+    <a href="workshop.html" class="nav-cta">Workshop</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <img src="photos/p2.jpg" alt="Piero Colomer fotografiando en un concierto" class="hero-img" loading="eager">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Fotografia de conciertos</div>
+    <h1>Cuando no hay<br>segunda oportunidad,<br><span>cada disparo</span> importa.</h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">Aprende a capturar instantes que solo suceden una vez. Convierte luces, movimiento y emocion en imagenes que cuenten una historia.</p>
+      <div class="hero-buttons">
+        <a href="workshop.html" class="btn-primary">Quiero el workshop &rarr;</a>
+        <a href="#trabajo" class="btn-outline">Ver el trabajo &darr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slideshow — "Desde el pit" -->
+<section id="trabajo" class="slideshow-quote">
+  <img class="slide active" src="photos/p1.jpg" alt="">
+  <img class="slide" src="photos/p2.jpg" alt="">
+  <img class="slide" src="photos/p3.jpg" alt="">
+  <img class="slide" src="photos/p4.jpg" alt="">
+  <img class="slide" src="photos/p5.jpg" alt="">
+  <img class="slide" src="photos/p6.jpg" alt="">
+  <img class="slide" src="photos/p7.jpg" alt="">
+  <img class="slide" src="photos/p8.jpg" alt="">
+  <img class="slide" src="photos/p9.jpg" alt="">
+  <img class="slide" src="photos/p10.jpg" alt="">
+  <img class="slide" src="photos/p11.jpg" alt="">
+  <img class="slide" src="photos/p12.jpg" alt="">
+  <img class="slide" src="photos/p13.jpg" alt="">
+  <img class="slide" src="photos/p14.jpg" alt="">
+  <img class="slide" src="photos/p15.jpg" alt="">
+  <div class="overlay"></div>
+  <div class="text">
+    <p>El unico lugar del mundo donde <span>no existen</span> las segundas oportunidades.</p>
+  </div>
+  <div class="corner corner-tl">Desde el pit</div>
+  <div class="corner corner-br"><a href="https://instagram.com/pierocolomer" target="_blank" rel="noopener">@pierocolomer &rarr;</a></div>
+</section>
+
+<!-- Workshop teaser -->
+<section class="teaser">
+  <div class="teaser-grid">
+    <div class="teaser-text">
+      <div>
+        <div class="section-tag">El workshop</div>
+        <h2>No necesitas<br>el mejor equipo.<br><span class="light">Necesitas</span><br>saber usarlo.</h2>
+      </div>
+      <div>
+        <p class="teaser-desc">Te enseno todo lo que necesitas saber para empezar en el mundo de la fotografia de conciertos.</p>
+        <a href="workshop.html" class="btn-dark">Ver el workshop &rarr;</a>
+      </div>
+    </div>
+    <div class="teaser-img">
+      <img src="photos/p15.jpg" alt="Piero en el pit, a contraluz" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="piero" class="section">
+  <div class="about-grid">
+    <img src="photos/p5.jpg" alt="Piero Colomer" class="about-img" loading="lazy">
+    <div class="about-text">
+      <div class="section-tag">Quien soy</div>
+      <h2>Piero Colomer</h2>
+      <p>Fotografio musica en vivo en Lima. Empece colandome a shows con una camara prestada y hoy trabajo acreditado para festivales, artistas y producciones.</p>
+      <p>El taller nacio porque me escribian siempre lo mismo: "como haces que se vean asi?". No es la camara. Es saber donde parar, que esperar y que hacer despues en la compu. Eso es lo que enseno.</p>
+      <div class="about-links">
+        <a href="https://instagram.com/pierocolomer" target="_blank" rel="noopener">@pierocolomer</a>
+        <a href="workshop.html" class="red">Ir al workshop &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <span>Piero Colomer — Fotografia de conciertos</span>
+  <span>Lima, Peru &middot; @pierocolomer</span>
+</footer>
+
+<script>
+(function() {
+  var slides = document.querySelectorAll('.slideshow-quote .slide');
+  var current = 0;
+  var total = slides.length;
+  setInterval(function() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % total;
+    slides[current].classList.add('active');
+  }, 200);
+})();
+</script>
+
+</body>
+</html>
