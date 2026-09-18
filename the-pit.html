@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Pit — Piero Colomer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0a0a0a;color:#ece7dd;font-family:'Archivo',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.8}
+img{display:block;max-width:100%;height:auto}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;padding:0 clamp(20px,4vw,56px);background:rgba(10,10,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #1f1d1a}
+.nav-logo{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.nav-links{display:flex;gap:28px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;align-items:center;justify-self:center}
+.nav-links a{color:#a39c90;transition:color .2s}
+.nav-links a:hover{color:#ece7dd;opacity:1}
+.nav-links a.active-page{color:#ece7dd}
+.nav-cta{background:#ff3d2e;color:#0a0a0a;padding:10px 18px;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:none;transition:transform .15s}
+.nav-cta:hover{opacity:1;transform:scale(1.03)}
+
+/* Page header — compact */
+.page-header{display:flex;justify-content:space-between;align-items:end;gap:20px;padding:clamp(32px,5vh,56px) clamp(20px,4vw,56px) clamp(20px,3vh,32px);flex-wrap:wrap}
+.page-header .tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#ff3d2e}
+.page-header h1{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(28px,4vw,48px);line-height:.92;text-transform:uppercase;margin-top:6px}
+.page-desc{font-size:14px;color:#a39c90;max-width:360px;line-height:1.5;text-align:right}
+
+/* Filtros */
+.filters{padding:0 clamp(20px,4vw,56px) clamp(32px,4vh,48px);display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.filter-btn{padding:8px 20px;border:1px solid #1f1d1a;background:transparent;color:#a39c90;font-size:13px;font-family:inherit;letter-spacing:.04em;border-radius:100px;cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:#555;color:#ece7dd}
+.filter-btn.active{background:#ff3d2e;color:#0a0a0a;border-color:#ff3d2e;font-weight:600}
+
+/* Conciertos grid */
+.section{padding:clamp(32px,4vw,56px) clamp(20px,4vw,56px)}
+
+.concerts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+
+.concert-card{background:#141312;border:1px solid #1f1d1a;border-radius:8px;overflow:hidden;transition:border-color .2s,transform .2s}
+.concert-card:hover{border-color:#333;transform:translateY(-2px)}
+.concert-header{padding:24px 24px 16px;display:flex;justify-content:space-between;align-items:start}
+.concert-info h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;line-height:1}
+.concert-info .venue{font-size:13px;color:#a39c90;margin-top:4px}
+.concert-date{font-size:11px;color:#a39c90;letter-spacing:.06em;text-transform:uppercase;text-align:right;white-space:nowrap}
+
+.concert-photographers{padding:0 24px 12px;display:flex;gap:6px;align-items:center}
+.concert-photographers .mini-avatar{width:24px;height:24px;border-radius:50%;border:2px solid #141312;object-fit:cover;margin-right:-8px;background:#1f1d1a}
+.concert-photographers .mini-avatar-text{width:24px;height:24px;border-radius:50%;border:2px solid #141312;margin-right:-8px;background:#1f1d1a;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#ff3d2e}
+.concert-photographers .count{font-size:12px;color:#a39c90;margin-left:14px}
+
+/* Preview grid — mini IG embeds as thumbnails */
+.concert-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:2px;padding:0 2px 2px}
+.preview-thumb{position:relative;aspect-ratio:1;overflow:hidden;background:#1a1a1a;pointer-events:none}
+.preview-thumb iframe{position:absolute;top:0;left:0;width:540px;height:680px;transform-origin:top left;transform:scale(.3);border:0}
+/* Static image fallback for cards without IG links */
+.concert-preview .preview-img{aspect-ratio:1;object-fit:cover;width:100%;background:#1a1a1a}
+
+.concert-footer{padding:12px 24px 16px;display:flex;justify-content:space-between;align-items:center}
+.concert-footer .photo-count{font-size:12px;color:#a39c90;letter-spacing:.04em}
+.concert-footer .view-link{font-size:12px;color:#ff3d2e;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+
+/* CTA */
+.submit-cta{text-align:center;padding:clamp(64px,8vw,120px) clamp(20px,4vw,56px);border-top:1px solid #1f1d1a}
+.submit-cta h2{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(36px,5vw,72px);line-height:.9;text-transform:uppercase;margin-bottom:16px}
+.submit-cta p{font-size:16px;color:#a39c90;max-width:520px;margin:0 auto 32px}
+.btn-primary{background:#ff3d2e;color:#0a0a0a;font-weight:600;font-size:14px;padding:16px 28px;display:inline-flex;gap:10px;align-items:center;border:none;transition:transform .15s;text-transform:uppercase;letter-spacing:.04em}
+.btn-primary:hover{opacity:1;transform:scale(1.03)}
+
+/* IG embeds inside concert cards */
+.concert-embeds{padding:0 16px 8px;display:none}
+.concert-card.expanded .concert-embeds{display:block}
+.concert-card.expanded .concert-preview{display:none}
+.embeds-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.embeds-grid iframe{width:100%;height:360px;border:0;border-radius:4px;background:#141312}
+.concert-card.expanded{grid-column:1 / -1}
+
+/* Footer */
+.footer{border-top:1px solid #1f1d1a;padding:24px clamp(20px,4vw,56px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#a39c90}
+
+@media(max-width:768px){
+  .nav-links .nav-link-text{display:none}
+  .concerts-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Piero Colomer</a>
+  <div class="nav-links">
+    <a href="comunidad.html" class="nav-link-text">Comunidad</a>
+    <a href="the-pit.html" class="nav-link-text active-page">The Pit</a>
+    <a href="index.html#piero" class="nav-link-text">Piero</a>
+    <a href="workshop.html" class="nav-cta">Workshop</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div>
+    <span class="tag">The Pit</span>
+    <h1>Cada concierto, todos los ángulos</h1>
+  </div>
+  <p class="page-desc">Un mismo show, visto por diferentes fotógrafos. Encuentra tu concierto y mira cómo lo capturaron desde el pit.</p>
+</div>
+
+<div class="filters">
+  <button class="filter-btn active">Todos</button>
+  <button class="filter-btn">2026</button>
+  <button class="filter-btn">2025</button>
+  <button class="filter-btn">Festivales</button>
+  <button class="filter-btn">Rock</button>
+  <button class="filter-btn">Urbano</button>
+  <button class="filter-btn">Pop</button>
+  <button class="filter-btn">Electrónica</button>
+</div>
+
+<section class="section">
+  <div class="concerts-grid">
+
+    <!-- Concierto 1 — Tini (con embeds reales de IG) -->
+    <div class="concert-card" id="tini">
+      <div class="concert-header">
+        <div class="concert-info">
+          <h3>Tini</h3>
+          <div class="venue">Arena Perú — Lima</div>
+        </div>
+        <div class="concert-date">15 Ago 2026</div>
+      </div>
+      <div class="concert-photographers">
+        <img src="photos/p5.jpg" alt="" class="mini-avatar">
+        <div class="mini-avatar-text">AC</div>
+        <div class="mini-avatar-text">DR</div>
+        <span class="count">3 fotógrafos</span>
+      </div>
+      <div class="concert-preview">
+        <div class="preview-thumb"><iframe src="https://www.instagram.com/p/DZDQaNsm_YT/embed" frameborder="0" scrolling="no"></iframe></div>
+        <div class="preview-thumb"><iframe src="https://www.instagram.com/p/DZQU0S0mkD7/embed" frameborder="0" scrolling="no"></iframe></div>
+      </div>
+      <div class="concert-embeds">
+        <div class="embeds-grid">
+          <iframe src="https://www.instagram.com/p/DZDQaNsm_YT/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          <iframe src="https://www.instagram.com/p/DZQU0S0mkD7/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+      </div>
+      <div class="concert-footer">
+        <span class="photo-count">2 posts</span>
+        <a href="#" class="view-link" onclick="togglePit(event,'tini')">Ver pit &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Concierto 2 -->
+    <div class="concert-card">
+      <div class="concert-header">
+        <div class="concert-info">
+          <h3>Coldplay</h3>
+          <div class="venue">Estadio Nacional — Lima</div>
+        </div>
+        <div class="concert-date">22 Sep 2026</div>
+      </div>
+      <div class="concert-photographers">
+        <img src="photos/p5.jpg" alt="" class="mini-avatar">
+        <div class="mini-avatar-text">CS</div>
+        <div class="mini-avatar-text">MV</div>
+        <div class="mini-avatar-text">LP</div>
+        <span class="count">4 fotógrafos</span>
+      </div>
+      <div class="concert-preview">
+        <img src="photos/concierto-10.jpg" alt="" class="preview-img" style="object-position:50% 32%">
+        <img src="photos/concierto-38.jpg" alt="" class="preview-img" style="object-position:50% 53%">
+        <img src="photos/concierto-34.jpg" alt="" class="preview-img" style="object-position:50% 39%">
+      </div>
+      <div class="concert-footer">
+        <span class="photo-count">24 fotos</span>
+        <a href="#" class="view-link">Ver pit &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Concierto 3 -->
+    <div class="concert-card">
+      <div class="concert-header">
+        <div class="concert-info">
+          <h3>Bad Bunny</h3>
+          <div class="venue">Arena Perú — Lima</div>
+        </div>
+        <div class="concert-date">10 Jul 2026</div>
+      </div>
+      <div class="concert-photographers">
+        <img src="photos/p5.jpg" alt="" class="mini-avatar">
+        <div class="mini-avatar-text">AC</div>
+        <span class="count">2 fotógrafos</span>
+      </div>
+      <div class="concert-preview">
+        <img src="photos/concierto-59.jpg" alt="" class="preview-img" style="object-position:50% 72%">
+        <img src="photos/concierto-07.jpg" alt="" class="preview-img" style="object-position:50% 73%">
+        <img src="photos/concierto-19.jpg" alt="" class="preview-img" style="object-position:50% 50%">
+      </div>
+      <div class="concert-footer">
+        <span class="photo-count">8 fotos</span>
+        <a href="#" class="view-link">Ver pit &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Concierto 4 -->
+    <div class="concert-card">
+      <div class="concert-header">
+        <div class="concert-info">
+          <h3>Selvamonos 2026</h3>
+          <div class="venue">Oxapampa</div>
+        </div>
+        <div class="concert-date">28 Jun 2026</div>
+      </div>
+      <div class="concert-photographers">
+        <img src="photos/p5.jpg" alt="" class="mini-avatar">
+        <div class="mini-avatar-text">DR</div>
+        <div class="mini-avatar-text">LP</div>
+        <div class="mini-avatar-text">CS</div>
+        <div class="mini-avatar-text">+3</div>
+        <span class="count">6 fotógrafos</span>
+      </div>
+      <div class="concert-preview">
+        <img src="photos/concierto-16.jpg" alt="" class="preview-img" style="object-position:50% 46%">
+        <img src="photos/concierto-43.jpg" alt="" class="preview-img" style="object-position:50% 74%">
+        <img src="photos/concierto-56.jpg" alt="" class="preview-img" style="object-position:50% 39%">
+      </div>
+      <div class="concert-footer">
+        <span class="photo-count">38 fotos</span>
+        <a href="#" class="view-link">Ver pit &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Concierto 5 -->
+    <div class="concert-card">
+      <div class="concert-header">
+        <div class="concert-info">
+          <h3>Vivo x el Rock</h3>
+          <div class="venue">Estadio San Marcos — Lima</div>
+        </div>
+        <div class="concert-date">15 May 2026</div>
+      </div>
+      <div class="concert-photographers">
+        <img src="photos/p5.jpg" alt="" class="mini-avatar">
+        <div class="mini-avatar-text">AC</div>
+        <div class="mini-avatar-text">DR</div>
+        <div class="mini-avatar-text">MV</div>
+        <div class="mini-avatar-text">+5</div>
+        <span class="count">8 fotógrafos</span>
+      </div>
+      <div class="concert-preview">
+        <img src="photos/concierto-47.jpg" alt="" class="preview-img" style="object-position:50% 26%">
+        <img src="photos/concierto-12.jpg" alt="" class="preview-img" style="object-position:50% 37%">
+        <img src="photos/concierto-37.jpg" alt="" class="preview-img" style="object-position:50% 60%">
+      </div>
+      <div class="concert-footer">
+        <span class="photo-count">52 fotos</span>
+        <a href="#" class="view-link">Ver pit &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Concierto 6 -->
+    <div class="concert-card">
+      <div class="concert-header">
+        <div class="concert-info">
+          <h3>Dua Lipa</h3>
+          <div class="venue">Arena Perú — Lima</div>
+        </div>
+        <div class="concert-date">02 Abr 2026</div>
+      </div>
+      <div class="concert-photographers">
+        <img src="photos/p5.jpg" alt="" class="mini-avatar">
+        <div class="mini-avatar-text">LP</div>
+        <span class="count">2 fotógrafos</span>
+      </div>
+      <div class="concert-preview">
+        <img src="photos/concierto-22.jpg" alt="" class="preview-img" style="object-position:50% 42%">
+        <img src="photos/concierto-31.jpg" alt="" class="preview-img" style="object-position:50% 45%">
+        <img src="photos/concierto-54.jpg" alt="" class="preview-img" style="object-position:50% 66%">
+      </div>
+      <div class="concert-footer">
+        <span class="photo-count">15 fotos</span>
+        <a href="#" class="view-link">Ver pit &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="submit-cta">
+  <h2>¿Cubriste un<br>concierto?</h2>
+  <p>Comparte tu cobertura. Pega tu link de Instagram y aparecerás en la galería del concierto junto a los demás fotógrafos.</p>
+  <a href="#" class="btn-primary">Subir mi cobertura &rarr;</a>
+</section>
+
+<footer class="footer">
+  <span>Piero Colomer — The Pit</span>
+  <span>Lima, Perú</span>
+</footer>
+
+<script>
+function togglePit(e, id) {
+  e.preventDefault();
+  var card = document.getElementById(id);
+  var link = card.querySelector('.view-link');
+  card.classList.toggle('expanded');
+  if (card.classList.contains('expanded')) {
+    link.innerHTML = 'Cerrar &larr;';
+  } else {
+    link.innerHTML = 'Ver pit &rarr;';
+  }
+}
+</script>
+</body>
+</html>

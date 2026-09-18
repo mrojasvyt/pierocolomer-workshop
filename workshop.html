@@ -24,9 +24,9 @@ input{font-family:inherit}
 input::placeholder{color:#6e685e}
 
 /* Nav */
-.nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;height:64px;padding:0 clamp(20px,4vw,56px);background:rgba(10,10,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #1f1d1a}
+.nav{position:sticky;top:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;padding:0 clamp(20px,4vw,56px);background:rgba(10,10,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #1f1d1a}
 .nav-logo{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
-.nav-links{display:flex;gap:24px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;align-items:center}
+.nav-links{display:flex;gap:28px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;align-items:center;justify-self:center}
 .nav-links a{color:#a39c90;transition:color .2s}
 .nav-links a:hover{color:#ece7dd;opacity:1}
 .nav-cta{background:#ff3d2e;color:#0a0a0a;padding:10px 18px;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:none;transition:transform .15s}
@@ -137,22 +137,23 @@ input::placeholder{color:#6e685e}
 <nav class="nav">
   <a href="index.html" class="nav-logo">Piero Colomer</a>
   <div class="nav-links">
-    <a href="index.html#trabajo" class="nav-link-text">Desde el pit</a>
+    <a href="comunidad.html" class="nav-link-text">Comunidad</a>
+    <a href="the-pit.html" class="nav-link-text">The Pit</a>
     <a href="index.html#piero" class="nav-link-text">Piero</a>
-    <a href="#paquete" class="nav-cta">Elegir paquete</a>
+    <a href="#paquete" class="nav-cta">Workshop</a>
   </div>
 </nav>
 
 <!-- Header -->
 <header class="ws-header">
   <div class="section-tag red">Workshop online &middot; en vivo por Zoom</div>
-  <h1>Fotografia<br>de conciertos</h1>
+  <h1>Fotografía<br>de conciertos</h1>
   <div class="ws-meta">
-    <div><span>Duracion</span>5 horas en vivo</div>
+    <div><span>Duración</span>5 horas en vivo</div>
     <div><span>Formato</span>Zoom &middot; dudas en tiempo real</div>
-    <div><span>Incluye</span>Grabacion completa</div>
-    <div><span>Proxima fecha</span>Por confirmar</div>
-    <div><span>Inversion</span>Desde $37 USD</div>
+    <div><span>Incluye</span>Grabación completa</div>
+    <div><span>Próxima fecha</span>Por confirmar</div>
+    <div><span>Inversión</span>Desde $37 USD</div>
   </div>
 </header>
 
@@ -163,14 +164,14 @@ input::placeholder{color:#6e685e}
     <div class="pain-list">
       <div class="pain-item">Las fotos salen movidas o llenas de ruido.</div>
       <div class="pain-item">El rojo del escenario te quema la piel del artista.</div>
-      <div class="pain-item">Disparas 800 fotos y no sabes cual elegir.</div>
+      <div class="pain-item">Disparas 800 fotos y no sabes cuál elegir.</div>
       <div class="pain-item">Tus fotos se ven igual a las de todos en el pit.</div>
     </div>
   </div>
   <div class="pain-answer">
-    <h2>No es la camara.<br><span>Es el criterio.</span></h2>
-    <p>En 5 horas te llevo por todo el proceso que uso en cada show: como configuro antes de entrar, que miro cuando cambian las luces, cuando disparo y cuando espero, y como edito para entregar la misma noche. Sales con un metodo, no con trucos.</p>
-    <p style="margin-top:16px">Y si: de esto se puede vivir. Acreditaciones, medios, artistas, productoras. Te cuento como entre yo y como cobrar por tu trabajo.</p>
+    <h2>No es la cámara.<br><span>Es el criterio.</span></h2>
+    <p>En 5 horas te llevo por todo el proceso que uso en cada show: cómo configuro antes de entrar, qué miro cuando cambian las luces, cuándo disparo y cuándo espero, y cómo edito para entregar la misma noche. Sales con un método, no con trucos.</p>
+    <p style="margin-top:16px">Y sí: de esto se puede vivir. Acreditaciones, medios, artistas, productoras. Te cuento cómo entré yo y cómo cobrar por tu trabajo.</p>
   </div>
 </section>
 
@@ -178,28 +179,28 @@ input::placeholder{color:#6e685e}
 <section class="section" style="padding-top:0">
   <div class="agenda-header">
     <h2>Las 5 horas,<br>bloque a bloque</h2>
-    <div class="agenda-reqs">Requisitos: bases de fotografia, internet estable y Lightroom Classic instalado. Trae tu camara para configurarla en vivo.</div>
+    <div class="agenda-reqs">Requisitos: bases de fotografía, internet estable y Lightroom Classic instalado. Trae tu cámara para configurarla en vivo.</div>
   </div>
   <div class="agenda-list">
     <div class="agenda-item">
       <div class="agenda-time">00:00<br><span class="dur">55 min</span></div>
       <div>
-        <div class="agenda-title">Camara en baja luz</div>
-        <p class="agenda-desc">ISO, obturacion y apertura cuando la luz cambia cada dos segundos. Configuramos tu camara en vivo, con los ajustes que uso yo antes de entrar al pit.</p>
+        <div class="agenda-title">Cámara en baja luz</div>
+        <p class="agenda-desc">ISO, obturación y apertura cuando la luz cambia cada dos segundos. Configuramos tu cámara en vivo, con los ajustes que uso yo antes de entrar al pit.</p>
       </div>
     </div>
     <div class="agenda-item">
       <div class="agenda-time">00:55<br><span class="dur">45 min</span></div>
       <div>
         <div class="agenda-title">Leer el escenario</div>
-        <p class="agenda-desc">Como anticipar el diseno de luces, donde parar segun el tipo de show y como trabajar las tres canciones del pit.</p>
+        <p class="agenda-desc">Cómo anticipar el diseño de luces, dónde parar según el tipo de show y cómo trabajar las tres canciones del pit.</p>
       </div>
     </div>
     <div class="agenda-item">
       <div class="agenda-time">01:40<br><span class="dur">45 min</span></div>
       <div>
-        <div class="agenda-title">Composicion y momento</div>
-        <p class="agenda-desc">Del retrato del artista al plano del publico. Cuando disparar, cuando esperar y como hacer que la foto tenga tu firma.</p>
+        <div class="agenda-title">Composición y momento</div>
+        <p class="agenda-desc">Del retrato del artista al plano del público. Cuándo disparar, cuándo esperar y cómo hacer que la foto tenga tu firma.</p>
       </div>
     </div>
     <div class="agenda-item agenda-break">
@@ -209,22 +210,22 @@ input::placeholder{color:#6e685e}
     <div class="agenda-item">
       <div class="agenda-time">02:35<br><span class="dur">60 min</span></div>
       <div>
-        <div class="agenda-title">Lightroom Classic: seleccion y flujo</div>
-        <p class="agenda-desc">De 800 fotos a las 30 que importan, en minutos. Importacion, banderas, presets propios y exportacion para redes y cliente.</p>
+        <div class="agenda-title">Lightroom Classic: selección y flujo</div>
+        <p class="agenda-desc">De 800 fotos a las 30 que importan, en minutos. Importación, banderas, presets propios y exportación para redes y cliente.</p>
       </div>
     </div>
     <div class="agenda-item">
       <div class="agenda-time">03:35<br><span class="dur">45 min</span></div>
       <div>
         <div class="agenda-title">Color de concierto</div>
-        <p class="agenda-desc">Rojos y magentas saturados sin perder la piel. Edicion en vivo de fotos reales de shows.</p>
+        <p class="agenda-desc">Rojos y magentas saturados sin perder la piel. Edición en vivo de fotos reales de shows.</p>
       </div>
     </div>
     <div class="agenda-item">
       <div class="agenda-time">04:20<br><span class="dur">40 min</span></div>
       <div>
         <div class="agenda-title">Acreditaciones y cobrar</div>
-        <p class="agenda-desc">Como conseguir pase de prensa, a quien escribir, como presentar tu portafolio y cuanto cobrar. Preguntas abiertas.</p>
+        <p class="agenda-desc">Cómo conseguir pase de prensa, a quién escribir, cómo presentar tu portafolio y cuánto cobrar. Preguntas abiertas.</p>
       </div>
     </div>
   </div>
@@ -234,27 +235,27 @@ input::placeholder{color:#6e685e}
 <section class="section" style="padding-top:0">
   <div class="editions-header">
     <h2>Ediciones<br>anteriores</h2>
-    <p class="editions-desc">Las ediciones presenciales en Lima terminaban con una salida a un show real. La version online lleva el mismo metodo a cualquier ciudad.</p>
+    <p class="editions-desc">Las ediciones presenciales en Lima terminaban con una salida a un show real. La versión online lleva el mismo método a cualquier ciudad.</p>
   </div>
   <div class="editions-grid">
-    <img src="photos/t4.jpg" alt="Taller edicion anterior" loading="lazy">
+    <img src="photos/t4.jpg" alt="Taller edición anterior" loading="lazy">
     <img src="photos/t2.jpg" alt="Alumnos del taller" loading="lazy">
-    <img src="photos/t7.jpg" alt="Practica en vivo" loading="lazy">
+    <img src="photos/t7.jpg" alt="Práctica en vivo" loading="lazy">
     <img src="photos/t3.jpg" alt="Clase presencial" loading="lazy">
   </div>
 </section>
 
 <!-- Benefits -->
 <section class="section benefits">
-  <div class="section-tag" style="color:#6e685e">Lo que cambia despues</div>
+  <div class="section-tag" style="color:#6e685e">Lo que cambia después</div>
   <div class="benefits-grid">
     <div class="benefit">
       <h3>Entras al show sabiendo que hacer</h3>
-      <p>Configuracion lista antes de la primera cancion. Cero improvisacion con los menus.</p>
+      <p>Configuración lista antes de la primera canción. Cero improvisación con los menús.</p>
     </div>
     <div class="benefit">
       <h3>Entregas la misma noche</h3>
-      <p>Un flujo de Lightroom que te saca las 30 mejores mientras el artista todavia esta firmando.</p>
+      <p>Un flujo de Lightroom que te saca las 30 mejores mientras el artista todavía está firmando.</p>
     </div>
     <div class="benefit">
       <h3>Tus fotos se reconocen</h3>
@@ -269,29 +270,29 @@ input::placeholder{color:#6e685e}
     <div class="checkout-left">
       <div class="section-tag red">Paso 1</div>
       <h2>Elige tu<br>paquete</h2>
-      <p class="checkout-desc">Todos incluyen la grabacion completa. La asesoria es una sesion 1 a 1 para revisar tu portafolio y tu siguiente paso.</p>
+      <p class="checkout-desc">Todos incluyen la grabación completa. La asesoría es una sesión 1 a 1 para revisar tu portafolio y tu siguiente paso.</p>
       <div class="plan-cards">
         <div class="plan-card" data-plan="taller" data-label="Workshop en vivo" data-price="$37" onclick="selectPlan(this)">
           <div class="plan-radio"><div class="plan-dot"></div></div>
           <div>
             <div class="plan-name">Workshop en vivo</div>
-            <div class="plan-sub">5 h por Zoom + grabacion completa</div>
+            <div class="plan-sub">5 h por Zoom + grabación completa</div>
           </div>
           <div class="plan-price">$37</div>
         </div>
-        <div class="plan-card" data-plan="asesoria" data-label="Asesoria personalizada" data-price="$70" onclick="selectPlan(this)">
+        <div class="plan-card" data-plan="asesoria" data-label="Asesoría personalizada" data-price="$70" onclick="selectPlan(this)">
           <div class="plan-radio"><div class="plan-dot"></div></div>
           <div>
-            <div class="plan-name">Asesoria personalizada</div>
-            <div class="plan-sub">Sesion 1 a 1 &middot; portafolio y siguiente paso</div>
+            <div class="plan-name">Asesoría personalizada</div>
+            <div class="plan-sub">Sesión 1 a 1 &middot; portafolio y siguiente paso</div>
           </div>
           <div class="plan-price">$70</div>
         </div>
-        <div class="plan-card active" data-plan="paquete" data-label="Workshop + Asesoria" data-price="$50" onclick="selectPlan(this)" style="position:relative">
+        <div class="plan-card active" data-plan="paquete" data-label="Workshop + Asesoría" data-price="$50" onclick="selectPlan(this)" style="position:relative">
           <div class="plan-save">Ahorras $57</div>
           <div class="plan-radio"><div class="plan-dot"></div></div>
           <div>
-            <div class="plan-name">Workshop + Asesoria</div>
+            <div class="plan-name">Workshop + Asesoría</div>
             <div class="plan-sub">Todo lo anterior, un solo pago</div>
           </div>
           <div><span class="plan-old">$107</span><span class="plan-price">$50</span></div>
@@ -315,20 +316,20 @@ input::placeholder{color:#6e685e}
           <input type="tel" id="whatsapp" name="whatsapp" placeholder="+51 999 999 999">
         </div>
         <div class="form-group">
-          <label for="country">Pais</label>
-          <input type="text" id="country" name="country" placeholder="Peru">
+          <label for="country">País</label>
+          <input type="text" id="country" name="country" placeholder="Perú">
         </div>
         <div class="form-total">
-          <span class="form-total-label" id="totalLabel">Workshop + Asesoria</span>
+          <span class="form-total-label" id="totalLabel">Workshop + Asesoría</span>
           <span class="form-total-price" id="totalPrice">$50 <small>USD</small></span>
         </div>
         <button type="submit" class="btn-submit">Continuar con el pago &rarr;</button>
-        <div class="form-note">Pago seguro. Recibes el enlace de Zoom y la grabacion por email.</div>
+        <div class="form-note">Pago seguro. Recibes el enlace de Zoom y la grabación por email.</div>
       </form>
       <div class="checkout-success" id="checkoutSuccess">
         <div class="section-tag red">Paso 3 &middot; Pago</div>
         <h3>Casi listo</h3>
-        <p>Aqui se abre la pasarela de pago. Al confirmar, recibes el enlace de Zoom y el acceso a la grabacion.</p>
+        <p>Aquí se abre la pasarela de pago. Al confirmar, recibes el enlace de Zoom y el acceso a la grabación.</p>
         <p style="color:#ece7dd" id="successDetail"></p>
         <div style="border:1px dashed #3a362f;padding:20px;font-size:11px;color:#6e685e;text-align:center;line-height:1.6">[ pasarela de pago: Stripe / Mercado Pago ]</div>
         <div class="back-link" onclick="resetForm()">&#8592; Cambiar paquete</div>
@@ -340,7 +341,7 @@ input::placeholder{color:#6e685e}
 <!-- Footer -->
 <footer class="footer">
   <a href="index.html">&#8592; Piero Colomer — Inicio</a>
-  <span>Lima, Peru &middot; @pierocolomer</span>
+  <span>Lima, Perú &middot; @pierocolomer</span>
 </footer>
 
 <script>

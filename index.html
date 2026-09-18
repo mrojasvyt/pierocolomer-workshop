@@ -22,9 +22,9 @@ img{display:block;max-width:100%;height:auto}
 button{font-family:inherit;cursor:pointer}
 
 /* Nav */
-.nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;height:64px;padding:0 clamp(20px,4vw,56px);background:rgba(10,10,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #1f1d1a}
+.nav{position:sticky;top:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px;padding:0 clamp(20px,4vw,56px);background:rgba(10,10,10,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #1f1d1a}
 .nav-logo{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
-.nav-links{display:flex;gap:24px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;align-items:center}
+.nav-links{display:flex;gap:28px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;align-items:center;justify-self:center}
 .nav-links a{color:#a39c90;transition:color .2s}
 .nav-links a:hover{color:#ece7dd;opacity:1}
 .nav-cta{background:#ff3d2e;color:#0a0a0a;padding:10px 18px;font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:none;transition:transform .15s}
@@ -51,11 +51,11 @@ button{font-family:inherit;cursor:pointer}
 
 /* Slideshow quote — replaces "Desde el pit" gallery */
 .slideshow-quote{position:relative;width:100%;height:100vh;min-height:500px;overflow:hidden}
-.slideshow-quote .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
+.slideshow-quote .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:0}
 .slideshow-quote .slide.active{opacity:1}
 .slideshow-quote .overlay{position:absolute;inset:0;background:rgba(10,10,10,.5);z-index:2}
 .slideshow-quote .text{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;padding:clamp(24px,6vw,80px);text-align:center}
-.slideshow-quote .text p{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(40px,7vw,110px);line-height:.92;text-transform:uppercase;max-width:1000px;letter-spacing:-.01em}
+.slideshow-quote .text p{font-family:'Big Shoulders Display',sans-serif;font-weight:900;font-size:clamp(32px,5.5vw,80px);line-height:.92;text-transform:uppercase;max-width:1000px;letter-spacing:-.01em;text-shadow:0 2px 40px rgba(0,0,0,.6),0 0 80px rgba(255,61,46,.15)}
 .slideshow-quote .text span{color:#ff3d2e}
 .slideshow-quote .corner{position:absolute;z-index:4;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#a39c90}
 .slideshow-quote .corner-tl{top:clamp(20px,4vw,48px);left:clamp(20px,4vw,56px)}
@@ -100,7 +100,8 @@ button{font-family:inherit;cursor:pointer}
 <nav class="nav">
   <a href="index.html" class="nav-logo">Piero Colomer</a>
   <div class="nav-links">
-    <a href="#trabajo" class="nav-link-text">Desde el pit</a>
+    <a href="comunidad.html" class="nav-link-text">Comunidad</a>
+    <a href="the-pit.html" class="nav-link-text">The Pit</a>
     <a href="#piero" class="nav-link-text">Piero</a>
     <a href="workshop.html" class="nav-cta">Workshop</a>
   </div>
@@ -111,10 +112,10 @@ button{font-family:inherit;cursor:pointer}
   <img src="photos/p2.jpg" alt="Piero Colomer fotografiando en un concierto" class="hero-img" loading="eager">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">Fotografia de conciertos</div>
+    <div class="hero-tag">Fotografía de conciertos</div>
     <h1>Cuando no hay<br>segunda oportunidad,<br><span>cada disparo</span> importa.</h1>
     <div class="hero-bottom">
-      <p class="hero-desc">Aprende a capturar instantes que solo suceden una vez. Convierte luces, movimiento y emocion en imagenes que cuenten una historia.</p>
+      <p class="hero-desc">Aprende a capturar instantes que solo suceden una vez. Convierte luces, movimiento y emoción en imágenes que cuenten una historia.</p>
       <div class="hero-buttons">
         <a href="workshop.html" class="btn-primary">Quiero el workshop &rarr;</a>
         <a href="#trabajo" class="btn-outline">Ver el trabajo &darr;</a>
@@ -125,24 +126,68 @@ button{font-family:inherit;cursor:pointer}
 
 <!-- Slideshow — "Desde el pit" -->
 <section id="trabajo" class="slideshow-quote">
-  <img class="slide active" src="photos/p1.jpg" alt="">
-  <img class="slide" src="photos/p2.jpg" alt="">
-  <img class="slide" src="photos/p3.jpg" alt="">
-  <img class="slide" src="photos/p4.jpg" alt="">
-  <img class="slide" src="photos/p5.jpg" alt="">
-  <img class="slide" src="photos/p6.jpg" alt="">
-  <img class="slide" src="photos/p7.jpg" alt="">
-  <img class="slide" src="photos/p8.jpg" alt="">
-  <img class="slide" src="photos/p9.jpg" alt="">
-  <img class="slide" src="photos/p10.jpg" alt="">
-  <img class="slide" src="photos/p11.jpg" alt="">
-  <img class="slide" src="photos/p12.jpg" alt="">
-  <img class="slide" src="photos/p13.jpg" alt="">
-  <img class="slide" src="photos/p14.jpg" alt="">
-  <img class="slide" src="photos/p15.jpg" alt="">
+  <img class="slide active" src="photos/concierto-01.jpg" alt="" style="object-position:50% 56%">
+  <img class="slide" src="photos/concierto-02.jpg" alt="" style="object-position:50% 50%">
+  <img class="slide" src="photos/concierto-03.jpg" alt="" style="object-position:50% 62%">
+  <img class="slide" src="photos/concierto-04.jpg" alt="" style="object-position:50% 60%">
+  <img class="slide" src="photos/concierto-05.jpg" alt="" style="object-position:50% 42%">
+  <img class="slide" src="photos/concierto-06.jpg" alt="" style="object-position:50% 58%">
+  <img class="slide" src="photos/concierto-07.jpg" alt="" style="object-position:50% 73%">
+  <img class="slide" src="photos/concierto-08.jpg" alt="" style="object-position:50% 58%">
+  <img class="slide" src="photos/concierto-09.jpg" alt="" style="object-position:50% 38%">
+  <img class="slide" src="photos/concierto-10.jpg" alt="" style="object-position:50% 32%">
+  <img class="slide" src="photos/concierto-11.jpg" alt="" style="object-position:50% 56%">
+  <img class="slide" src="photos/concierto-12.jpg" alt="" style="object-position:50% 37%">
+  <img class="slide" src="photos/concierto-13.jpg" alt="" style="object-position:50% 58%">
+  <img class="slide" src="photos/concierto-14.jpg" alt="" style="object-position:50% 44%">
+  <img class="slide" src="photos/concierto-15.jpg" alt="" style="object-position:50% 39%">
+  <img class="slide" src="photos/concierto-16.jpg" alt="" style="object-position:50% 46%">
+  <img class="slide" src="photos/concierto-17.jpg" alt="" style="object-position:50% 46%">
+  <img class="slide" src="photos/concierto-18.jpg" alt="" style="object-position:50% 55%">
+  <img class="slide" src="photos/concierto-19.jpg" alt="" style="object-position:50% 50%">
+  <img class="slide" src="photos/concierto-20.jpg" alt="" style="object-position:50% 50%">
+  <img class="slide" src="photos/concierto-21.jpg" alt="" style="object-position:50% 52%">
+  <img class="slide" src="photos/concierto-22.jpg" alt="" style="object-position:50% 42%">
+  <img class="slide" src="photos/concierto-23.jpg" alt="" style="object-position:50% 51%">
+  <img class="slide" src="photos/concierto-24.jpg" alt="" style="object-position:50% 30%">
+  <img class="slide" src="photos/concierto-25.jpg" alt="" style="object-position:50% 42%">
+  <img class="slide" src="photos/concierto-26.jpg" alt="" style="object-position:50% 58%">
+  <img class="slide" src="photos/concierto-27.jpg" alt="" style="object-position:50% 55%">
+  <img class="slide" src="photos/concierto-28.jpg" alt="" style="object-position:50% 55%">
+  <img class="slide" src="photos/concierto-29.jpg" alt="" style="object-position:50% 54%">
+  <img class="slide" src="photos/concierto-30.jpg" alt="" style="object-position:50% 45%">
+  <img class="slide" src="photos/concierto-31.jpg" alt="" style="object-position:50% 45%">
+  <img class="slide" src="photos/concierto-32.jpg" alt="" style="object-position:50% 33%">
+  <img class="slide" src="photos/concierto-33.jpg" alt="" style="object-position:50% 37%">
+  <img class="slide" src="photos/concierto-34.jpg" alt="" style="object-position:50% 39%">
+  <img class="slide" src="photos/concierto-35.jpg" alt="" style="object-position:50% 46%">
+  <img class="slide" src="photos/concierto-36.jpg" alt="" style="object-position:50% 46%">
+  <img class="slide" src="photos/concierto-37.jpg" alt="" style="object-position:50% 60%">
+  <img class="slide" src="photos/concierto-38.jpg" alt="" style="object-position:50% 53%">
+  <img class="slide" src="photos/concierto-39.jpg" alt="" style="object-position:50% 33%">
+  <img class="slide" src="photos/concierto-40.jpg" alt="" style="object-position:50% 49%">
+  <img class="slide" src="photos/concierto-41.jpg" alt="" style="object-position:50% 32%">
+  <img class="slide" src="photos/concierto-42.jpg" alt="" style="object-position:50% 33%">
+  <img class="slide" src="photos/concierto-43.jpg" alt="" style="object-position:50% 74%">
+  <img class="slide" src="photos/concierto-44.jpg" alt="" style="object-position:50% 48%">
+  <img class="slide" src="photos/concierto-45.jpg" alt="" style="object-position:50% 59%">
+  <img class="slide" src="photos/concierto-46.jpg" alt="" style="object-position:50% 54%">
+  <img class="slide" src="photos/concierto-47.jpg" alt="" style="object-position:50% 26%">
+  <img class="slide" src="photos/concierto-48.jpg" alt="" style="object-position:50% 34%">
+  <img class="slide" src="photos/concierto-49.jpg" alt="" style="object-position:50% 69%">
+  <img class="slide" src="photos/concierto-50.jpg" alt="" style="object-position:50% 40%">
+  <img class="slide" src="photos/concierto-51.jpg" alt="" style="object-position:50% 42%">
+  <img class="slide" src="photos/concierto-52.jpg" alt="" style="object-position:50% 33%">
+  <img class="slide" src="photos/concierto-53.jpg" alt="" style="object-position:50% 34%">
+  <img class="slide" src="photos/concierto-54.jpg" alt="" style="object-position:50% 66%">
+  <img class="slide" src="photos/concierto-55.jpg" alt="" style="object-position:50% 65%">
+  <img class="slide" src="photos/concierto-56.jpg" alt="" style="object-position:50% 39%">
+  <img class="slide" src="photos/concierto-57.jpg" alt="" style="object-position:50% 29%">
+  <img class="slide" src="photos/concierto-58.jpg" alt="" style="object-position:50% 50%">
+  <img class="slide" src="photos/concierto-59.jpg" alt="" style="object-position:50% 72%">
   <div class="overlay"></div>
   <div class="text">
-    <p>El unico lugar del mundo donde <span>no existen</span> las segundas oportunidades.</p>
+    <p>El único lugar del mundo donde <span>no existen</span> las segundas oportunidades.</p>
   </div>
   <div class="corner corner-tl">Desde el pit</div>
   <div class="corner corner-br"><a href="https://instagram.com/pierocolomer" target="_blank" rel="noopener">@pierocolomer &rarr;</a></div>
@@ -157,7 +202,7 @@ button{font-family:inherit;cursor:pointer}
         <h2>No necesitas<br>el mejor equipo.<br><span class="light">Necesitas</span><br>saber usarlo.</h2>
       </div>
       <div>
-        <p class="teaser-desc">Te enseno todo lo que necesitas saber para empezar en el mundo de la fotografia de conciertos.</p>
+        <p class="teaser-desc">Te enseño todo lo que necesitas saber para empezar en el mundo de la fotografía de conciertos.</p>
         <a href="workshop.html" class="btn-dark">Ver el workshop &rarr;</a>
       </div>
     </div>
@@ -172,10 +217,10 @@ button{font-family:inherit;cursor:pointer}
   <div class="about-grid">
     <img src="photos/p5.jpg" alt="Piero Colomer" class="about-img" loading="lazy">
     <div class="about-text">
-      <div class="section-tag">Quien soy</div>
+      <div class="section-tag">Quién soy</div>
       <h2>Piero Colomer</h2>
-      <p>Fotografio musica en vivo en Lima. Empece colandome a shows con una camara prestada y hoy trabajo acreditado para festivales, artistas y producciones.</p>
-      <p>El taller nacio porque me escribian siempre lo mismo: "como haces que se vean asi?". No es la camara. Es saber donde parar, que esperar y que hacer despues en la compu. Eso es lo que enseno.</p>
+      <p>Fotografío música en vivo en Lima. Empecé colándome a shows con una cámara prestada y hoy trabajo acreditado para festivales, artistas y producciones.</p>
+      <p>El taller nació porque me escribían siempre lo mismo: "¿cómo haces que se vean así?". No es la cámara. Es saber dónde parar, qué esperar y qué hacer después en la compu. Eso es lo que enseño.</p>
       <div class="about-links">
         <a href="https://instagram.com/pierocolomer" target="_blank" rel="noopener">@pierocolomer</a>
         <a href="workshop.html" class="red">Ir al workshop &rarr;</a>
@@ -186,8 +231,8 @@ button{font-family:inherit;cursor:pointer}
 
 <!-- Footer -->
 <footer class="footer">
-  <span>Piero Colomer — Fotografia de conciertos</span>
-  <span>Lima, Peru &middot; @pierocolomer</span>
+  <span>Piero Colomer — Fotografía de conciertos</span>
+  <span>Lima, Perú &middot; @pierocolomer</span>
 </footer>
 
 <script>
@@ -199,7 +244,7 @@ button{font-family:inherit;cursor:pointer}
     slides[current].classList.remove('active');
     current = (current + 1) % total;
     slides[current].classList.add('active');
-  }, 200);
+  }, 100);
 })();
 </script>
 
